@@ -121,11 +121,11 @@ export default function Index() {
 
           {/* Logo */}
           <div style={{ display: "flex", alignItems: "center", gap: 6, cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-            <div style={{ width: 26, height: 26, borderRadius: "50%", background: "linear-gradient(135deg, #1d4ed8, #2563eb)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ width: 26, height: 26, borderRadius: "50%", background: "linear-gradient(135deg, #9b1c1c, #c0392b)", display: "flex", alignItems: "center", justifyContent: "center" }}>
               <Icon name="Truck" size={13} style={{ color: "white" }} />
             </div>
             <span style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800, fontSize: "1.2rem", letterSpacing: "0.02em" }}>
-              <span style={{ color: "#1a1a1a" }}>БИГ-</span><span style={{ color: "#2563eb" }}>ИМПОРТ</span>
+              <span style={{ color: "#1a1a1a" }}>БИГ-</span><span style={{ color: "#c0392b" }}>ИМПОРТ</span>
             </span>
           </div>
 
@@ -135,7 +135,9 @@ export default function Index() {
               const isActive = activeSection === id;
               return (
                 <button key={id} onClick={() => { scrollTo(id); setActiveSection(id); }}
-                  style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "0.63rem", fontWeight: 600, letterSpacing: "0.08em", color: isActive ? "white" : "#555", background: isActive ? "#2563eb" : "transparent", border: "none", borderRadius: isActive ? 20 : 0, cursor: "pointer", padding: isActive ? "6px 16px" : "6px 10px", transition: "all 0.2s" }}>
+                  style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "0.63rem", fontWeight: 600, letterSpacing: "0.08em", color: isActive ? "#c0392b" : "#555", background: "transparent", border: "none", borderBottom: isActive ? "2px solid #c0392b" : "2px solid transparent", cursor: "pointer", padding: "6px 12px", transition: "all 0.2s" }}
+                  onMouseEnter={(e) => { if (!isActive) { (e.currentTarget as HTMLButtonElement).style.color = "#c0392b"; (e.currentTarget as HTMLButtonElement).style.borderBottomColor = "rgba(192,57,43,0.35)"; } }}
+                  onMouseLeave={(e) => { if (!isActive) { (e.currentTarget as HTMLButtonElement).style.color = "#555"; (e.currentTarget as HTMLButtonElement).style.borderBottomColor = "transparent"; } }}>
                   {label}
                 </button>
               );
@@ -151,7 +153,7 @@ export default function Index() {
           <div style={{ background: "white", borderTop: "1px solid #f0f0f0" }}>
             {NAV_ITEMS.map(({ id, label }) => (
               <button key={id} onClick={() => { scrollTo(id); setMobileOpen(false); setActiveSection(id); }}
-                style={{ display: "block", width: "100%", textAlign: "left", padding: "12px 24px", fontFamily: "'Montserrat', sans-serif", fontSize: "0.72rem", letterSpacing: "0.1em", color: "#444", background: "none", border: "none", borderBottom: "1px solid #f5f5f5", cursor: "pointer" }}>
+                style={{ display: "block", width: "100%", textAlign: "left", padding: "12px 24px", fontFamily: "'Montserrat', sans-serif", fontSize: "0.72rem", letterSpacing: "0.1em", color: activeSection === id ? "#c0392b" : "#444", background: activeSection === id ? "#fdf2f0" : "none", border: "none", borderBottom: "1px solid #f5f5f5", borderLeft: activeSection === id ? "3px solid #c0392b" : "3px solid transparent", cursor: "pointer" }}>
                 {label}
               </button>
             ))}
@@ -198,10 +200,10 @@ export default function Index() {
               { icon: "BarChart3", title: "Рост продаж", text: "Помогаем брендам увеличивать долю на полке. Наши клиенты в среднем показывают +35% роста продаж в первый год." },
             ].map(({ icon, title, text }) => (
               <div key={title} style={{ border: "1px solid #e0e0e0", borderRadius: 4, padding: "28px 24px", display: "flex", flexDirection: "column", gap: 12, transition: "border-color 0.2s, box-shadow 0.2s" }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.borderColor = "#2563eb"; (e.currentTarget as HTMLDivElement).style.boxShadow = "0 4px 20px rgba(37,99,235,0.08)"; }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.borderColor = "#c0392b"; (e.currentTarget as HTMLDivElement).style.boxShadow = "0 4px 20px rgba(192,57,43,0.08)"; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.borderColor = "#e0e0e0"; (e.currentTarget as HTMLDivElement).style.boxShadow = "none"; }}>
-                <div style={{ width: 40, height: 40, borderRadius: 8, background: "#eff6ff", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <Icon name={icon} size={20} style={{ color: "#2563eb" }} />
+                <div style={{ width: 40, height: 40, borderRadius: 8, background: "#fdf2f0", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <Icon name={icon} size={20} style={{ color: "#c0392b" }} />
                 </div>
                 <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: "0.82rem", color: "#1a1a1a", margin: 0, lineHeight: 1.4 }}>{title}</p>
                 <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "0.75rem", color: "#666", margin: 0, lineHeight: 1.7, fontWeight: 400 }}>{text}</p>
@@ -270,18 +272,18 @@ export default function Index() {
             </div>
 
             <label style={{ display: "flex", alignItems: "flex-start", gap: 10, marginBottom: 12, cursor: "pointer" }}>
-              <input type="checkbox" checked={form.agree1} onChange={(e) => setForm((f) => ({ ...f, agree1: e.target.checked }))} style={{ marginTop: 2, accentColor: "#2563eb" }} />
+              <input type="checkbox" checked={form.agree1} onChange={(e) => setForm((f) => ({ ...f, agree1: e.target.checked }))} style={{ marginTop: 2, accentColor: "#c0392b" }} />
               <span style={{ fontSize: "0.7rem", color: "#444", lineHeight: 1.6 }}>Согласен на обработку персональных данных <span style={{ color: "#e00" }}>*</span></span>
             </label>
 
             <label style={{ display: "flex", alignItems: "flex-start", gap: 10, marginBottom: 28, cursor: "pointer" }}>
-              <input type="checkbox" checked={form.agree2} onChange={(e) => setForm((f) => ({ ...f, agree2: e.target.checked }))} style={{ marginTop: 2, accentColor: "#2563eb" }} />
+              <input type="checkbox" checked={form.agree2} onChange={(e) => setForm((f) => ({ ...f, agree2: e.target.checked }))} style={{ marginTop: 2, accentColor: "#c0392b" }} />
               <span style={{ fontSize: "0.7rem", color: "#444", lineHeight: 1.6 }}>Согласен на политику обработки персональных данных <span style={{ color: "#e00" }}>*</span></span>
             </label>
 
             <button type="submit"
               style={{ padding: "11px 0", background: "white", border: "1px solid #bbb", fontFamily: "'Montserrat', sans-serif", fontSize: "0.78rem", letterSpacing: "0.04em", color: "#333", cursor: "pointer", maxWidth: 280, transition: "all 0.2s" }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#2563eb"; (e.currentTarget as HTMLButtonElement).style.color = "white"; (e.currentTarget as HTMLButtonElement).style.borderColor = "#2563eb"; }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#c0392b"; (e.currentTarget as HTMLButtonElement).style.color = "white"; (e.currentTarget as HTMLButtonElement).style.borderColor = "#c0392b"; }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "white"; (e.currentTarget as HTMLButtonElement).style.color = "#333"; (e.currentTarget as HTMLButtonElement).style.borderColor = "#bbb"; }}>
               Отправить
             </button>
@@ -319,7 +321,7 @@ export default function Index() {
         <div style={{ maxWidth: 960, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
             <span style={{ fontSize: "0.6rem", color: "#bbb" }}>Powered by</span>
-            <span style={{ fontSize: "0.65rem", fontWeight: 700, color: "#2563eb", letterSpacing: "0.06em" }}>ТЕХРОВ</span>
+            <span style={{ fontSize: "0.65rem", fontWeight: 700, color: "#c0392b", letterSpacing: "0.06em" }}>ТЕХРОВ</span>
           </div>
           <div style={{ display: "flex", gap: 20, flexWrap: "wrap" }}>
             {["ИСПОЛЬЗОВАНИЕ ФАЙЛОВ COOKIE", "ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ", "СОГЛАШЕНИЕ ПОЛЬЗОВАТЕЛЯ САЙТА"].map((link) => (
