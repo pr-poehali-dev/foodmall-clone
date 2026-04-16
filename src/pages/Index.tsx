@@ -121,11 +121,11 @@ export default function Index() {
 
           {/* Logo */}
           <div style={{ display: "flex", alignItems: "center", gap: 6, cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-            <div style={{ width: 26, height: 26, borderRadius: "50%", background: "linear-gradient(135deg, #1e8c4a, #34c46a)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <Icon name="Leaf" size={13} style={{ color: "white" }} />
+            <div style={{ width: 26, height: 26, borderRadius: "50%", background: "linear-gradient(135deg, #1d4ed8, #2563eb)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <Icon name="Truck" size={13} style={{ color: "white" }} />
             </div>
             <span style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800, fontSize: "1.2rem", letterSpacing: "0.02em" }}>
-              <span style={{ color: "#1a1a1a" }}>FOOD</span><span style={{ color: "#2db360" }}>MALL</span>
+              <span style={{ color: "#1a1a1a" }}>FOOD</span><span style={{ color: "#2563eb" }}>MALL</span>
             </span>
           </div>
 
@@ -135,7 +135,7 @@ export default function Index() {
               const isActive = activeSection === id;
               return (
                 <button key={id} onClick={() => { scrollTo(id); setActiveSection(id); }}
-                  style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "0.63rem", fontWeight: 600, letterSpacing: "0.08em", color: isActive ? "white" : "#555", background: isActive ? "#2db360" : "transparent", border: "none", borderRadius: isActive ? 20 : 0, cursor: "pointer", padding: isActive ? "6px 16px" : "6px 10px", transition: "all 0.2s" }}>
+                  style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "0.63rem", fontWeight: 600, letterSpacing: "0.08em", color: isActive ? "white" : "#555", background: isActive ? "#2563eb" : "transparent", border: "none", borderRadius: isActive ? 20 : 0, cursor: "pointer", padding: isActive ? "6px 16px" : "6px 10px", transition: "all 0.2s" }}>
                   {label}
                 </button>
               );
@@ -167,14 +167,14 @@ export default function Index() {
         <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
           <div style={{ background: "rgba(255,255,255,0.93)", borderRadius: 12, padding: "18px 48px 14px", textAlign: "center", boxShadow: "0 8px 40px rgba(0,0,0,0.18)" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, justifyContent: "center" }}>
-              <div style={{ width: 34, height: 34, borderRadius: "50%", background: "linear-gradient(135deg, #1e8c4a, #34c46a)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <div style={{ width: 34, height: 34, borderRadius: "50%", background: "linear-gradient(135deg, #1d4ed8, #2563eb)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <Icon name="Droplets" size={16} style={{ color: "white" }} />
               </div>
               <span style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "2rem", fontWeight: 800, color: "#1a1a1a", letterSpacing: "0.18em" }}>
                 ISTISU
               </span>
             </div>
-            <div style={{ borderTop: "2px solid #2db360", marginTop: 8, paddingTop: 6 }}>
+            <div style={{ borderTop: "2px solid #2563eb", marginTop: 8, paddingTop: 6 }}>
               <span style={{ fontSize: "0.55rem", color: "#999", letterSpacing: "0.2em", textTransform: "uppercase" }}>
                 природная минеральная вода
               </span>
@@ -184,7 +184,7 @@ export default function Index() {
 
         <div style={{ position: "absolute", bottom: 14, left: "50%", transform: "translateX(-50%)" }}>
           <div style={{ width: 30, height: 30, borderRadius: "50%", background: "rgba(255,255,255,0.9)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 2px 8px rgba(0,0,0,0.15)" }}>
-            <Icon name="ChevronDown" size={15} style={{ color: "#2db360" }} />
+            <Icon name="ChevronDown" size={15} style={{ color: "#2563eb" }} />
           </div>
         </div>
       </div>
@@ -248,18 +248,18 @@ export default function Index() {
             </div>
 
             <label style={{ display: "flex", alignItems: "flex-start", gap: 10, marginBottom: 12, cursor: "pointer" }}>
-              <input type="checkbox" checked={form.agree1} onChange={(e) => setForm((f) => ({ ...f, agree1: e.target.checked }))} style={{ marginTop: 2, accentColor: "#2db360" }} />
+              <input type="checkbox" checked={form.agree1} onChange={(e) => setForm((f) => ({ ...f, agree1: e.target.checked }))} style={{ marginTop: 2, accentColor: "#2563eb" }} />
               <span style={{ fontSize: "0.7rem", color: "#444", lineHeight: 1.6 }}>Согласен на обработку персональных данных <span style={{ color: "#e00" }}>*</span></span>
             </label>
 
             <label style={{ display: "flex", alignItems: "flex-start", gap: 10, marginBottom: 28, cursor: "pointer" }}>
-              <input type="checkbox" checked={form.agree2} onChange={(e) => setForm((f) => ({ ...f, agree2: e.target.checked }))} style={{ marginTop: 2, accentColor: "#2db360" }} />
+              <input type="checkbox" checked={form.agree2} onChange={(e) => setForm((f) => ({ ...f, agree2: e.target.checked }))} style={{ marginTop: 2, accentColor: "#2563eb" }} />
               <span style={{ fontSize: "0.7rem", color: "#444", lineHeight: 1.6 }}>Согласен на политику обработки персональных данных <span style={{ color: "#e00" }}>*</span></span>
             </label>
 
             <button type="submit"
               style={{ padding: "11px 0", background: "white", border: "1px solid #bbb", fontFamily: "'Montserrat', sans-serif", fontSize: "0.78rem", letterSpacing: "0.04em", color: "#333", cursor: "pointer", maxWidth: 280, transition: "all 0.2s" }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#2db360"; (e.currentTarget as HTMLButtonElement).style.color = "white"; (e.currentTarget as HTMLButtonElement).style.borderColor = "#2db360"; }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#2563eb"; (e.currentTarget as HTMLButtonElement).style.color = "white"; (e.currentTarget as HTMLButtonElement).style.borderColor = "#2563eb"; }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "white"; (e.currentTarget as HTMLButtonElement).style.color = "#333"; (e.currentTarget as HTMLButtonElement).style.borderColor = "#bbb"; }}>
               Отправить
             </button>
@@ -297,7 +297,7 @@ export default function Index() {
         <div style={{ maxWidth: 960, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
             <span style={{ fontSize: "0.6rem", color: "#bbb" }}>Powered by</span>
-            <span style={{ fontSize: "0.65rem", fontWeight: 700, color: "#2db360", letterSpacing: "0.06em" }}>ТЕХРОВ</span>
+            <span style={{ fontSize: "0.65rem", fontWeight: 700, color: "#2563eb", letterSpacing: "0.06em" }}>ТЕХРОВ</span>
           </div>
           <div style={{ display: "flex", gap: 20, flexWrap: "wrap" }}>
             {["ИСПОЛЬЗОВАНИЕ ФАЙЛОВ COOKIE", "ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ", "СОГЛАШЕНИЕ ПОЛЬЗОВАТЕЛЯ САЙТА"].map((link) => (
