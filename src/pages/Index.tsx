@@ -125,7 +125,7 @@ export default function Index() {
               <Icon name="Truck" size={13} style={{ color: "white" }} />
             </div>
             <span style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800, fontSize: "1.2rem", letterSpacing: "0.02em" }}>
-              <span style={{ color: "#1a1a1a" }}>FOOD</span><span style={{ color: "#2563eb" }}>MALL</span>
+              <span style={{ color: "#1a1a1a" }}>БИГ-</span><span style={{ color: "#2563eb" }}>ИМПОРТ</span>
             </span>
           </div>
 
@@ -162,32 +162,54 @@ export default function Index() {
       {/* ── HERO ── */}
       <div style={{ marginTop: 64, position: "relative", height: 300, overflow: "hidden", borderBottomLeftRadius: 48, borderBottomRightRadius: 48 }}>
         <img src={MOUNTAIN_BG} alt="горы" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 35%" }} />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(255,255,255,0.04), rgba(255,255,255,0.1))" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.45) 100%)" }} />
 
-        <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <div style={{ background: "rgba(255,255,255,0.93)", borderRadius: 12, padding: "18px 48px 14px", textAlign: "center", boxShadow: "0 8px 40px rgba(0,0,0,0.18)" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 10, justifyContent: "center" }}>
-              <div style={{ width: 34, height: 34, borderRadius: "50%", background: "linear-gradient(135deg, #1d4ed8, #2563eb)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <Icon name="Droplets" size={16} style={{ color: "white" }} />
-              </div>
-              <span style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "2rem", fontWeight: 800, color: "#1a1a1a", letterSpacing: "0.18em" }}>
-                ISTISU
-              </span>
-            </div>
-            <div style={{ borderTop: "2px solid #2563eb", marginTop: 8, paddingTop: 6 }}>
-              <span style={{ fontSize: "0.55rem", color: "#999", letterSpacing: "0.2em", textTransform: "uppercase" }}>
-                природная минеральная вода
-              </span>
-            </div>
+        <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "flex-end", justifyContent: "flex-start", padding: "0 60px 36px" }}>
+          <div>
+            <h1 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "2.4rem", fontWeight: 900, color: "white", letterSpacing: "0.04em", textShadow: "0 2px 16px rgba(0,0,0,0.4)", margin: 0, lineHeight: 1.1 }}>
+              БИГ-ИМПОРТ
+            </h1>
+            <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "0.8rem", color: "rgba(255,255,255,0.85)", marginTop: 8, fontWeight: 400, textShadow: "0 1px 8px rgba(0,0,0,0.4)", letterSpacing: "0.04em" }}>
+              Официальный дистрибьютор мировых брендов
+            </p>
           </div>
         </div>
 
-        <div style={{ position: "absolute", bottom: 14, left: "50%", transform: "translateX(-50%)" }}>
-          <div style={{ width: 30, height: 30, borderRadius: "50%", background: "rgba(255,255,255,0.9)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 2px 8px rgba(0,0,0,0.15)" }}>
-            <Icon name="ChevronDown" size={15} style={{ color: "#2563eb" }} />
-          </div>
-        </div>
+
       </div>
+
+      {/* ── О НАС ── */}
+      <section id="about" style={{ padding: "64px 0 56px" }}>
+        <div style={{ maxWidth: 960, margin: "0 auto", padding: "0 40px" }}>
+          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "1.1rem", fontWeight: 800, color: "#1a1a1a", letterSpacing: "0.06em", marginBottom: 12 }}>
+            О НАС
+          </h2>
+          <p style={{ color: "#555", fontSize: "0.82rem", lineHeight: 1.75, marginBottom: 48, fontWeight: 400, maxWidth: 660 }}>
+            БИГ-ИМПОРТ — ведущий дистрибьютор продуктов питания и напитков на российском рынке. Мы работаем с крупнейшими мировыми и отечественными брендами, обеспечивая их присутствие во всех национальных розничных сетях.
+          </p>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
+            {[
+              { icon: "Globe", title: "Международные бренды", text: "Официальный дистрибьютор более 30 мировых брендов. Работаем напрямую с производителями без посредников." },
+              { icon: "Store", title: "Все розничные сети", text: "Наша продукция представлена в крупнейших сетях: Магнит, X5, Лента, Ашан, Metro и сотнях региональных ретейлеров." },
+              { icon: "Truck", title: "Собственная логистика", text: "Флот из 50+ автомобилей. Доставка в любую точку России в срок от 1 до 3 дней." },
+              { icon: "ShieldCheck", title: "Гарантия качества", text: "Каждая партия товара проходит многоступенчатый контроль качества. Работаем только с сертифицированными поставщиками." },
+              { icon: "HeartHandshake", title: "Долгосрочное партнёрство", text: "Более 15 лет на рынке. За это время выстроили прочные отношения с тысячами партнёров по всей стране." },
+              { icon: "BarChart3", title: "Рост продаж", text: "Помогаем брендам увеличивать долю на полке. Наши клиенты в среднем показывают +35% роста продаж в первый год." },
+            ].map(({ icon, title, text }) => (
+              <div key={title} style={{ border: "1px solid #e0e0e0", borderRadius: 4, padding: "28px 24px", display: "flex", flexDirection: "column", gap: 12, transition: "border-color 0.2s, box-shadow 0.2s" }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.borderColor = "#2563eb"; (e.currentTarget as HTMLDivElement).style.boxShadow = "0 4px 20px rgba(37,99,235,0.08)"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.borderColor = "#e0e0e0"; (e.currentTarget as HTMLDivElement).style.boxShadow = "none"; }}>
+                <div style={{ width: 40, height: 40, borderRadius: 8, background: "#eff6ff", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <Icon name={icon} size={20} style={{ color: "#2563eb" }} />
+                </div>
+                <p style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: "0.82rem", color: "#1a1a1a", margin: 0, lineHeight: 1.4 }}>{title}</p>
+                <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "0.75rem", color: "#666", margin: 0, lineHeight: 1.7, fontWeight: 400 }}>{text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ── ДИСТРИБУЦИЯ И БРЕНДЫ ── */}
       <section id="distribution" style={{ padding: "60px 0 48px" }}>
