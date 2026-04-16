@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Icon from "@/components/ui/icon";
 
 const MOUNTAIN_BG =
@@ -93,6 +93,49 @@ function BrandLogo({ name, logo }: { name: string; logo: string }) {
           {name}
         </span>
       )}
+    </div>
+  );
+}
+
+function BrandCarousel() {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [paused, setPaused] = useState(false);
+  const offset = useRef(0);
+  const rafRef = useRef<number>(0);
+
+  const doubled = [...BRANDS, ...BRANDS];
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    const itemWidth = 160;
+    const totalWidth = BRANDS.length * itemWidth;
+
+    const animate = () => {
+      if (!paused) {
+        offset.current += 0.5;
+        if (offset.current >= totalWidth) offset.current = 0;
+        if (track) track.style.transform = `translateX(-${offset.current}px)`;
+      }
+      rafRef.current = requestAnimationFrame(animate);
+    };
+    rafRef.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [paused]);
+
+  return (
+    <div style={{ overflow: "hidden", position: "relative", margin: "0 -40px" }}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}>
+      <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 60, background: "linear-gradient(to right, white, transparent)", zIndex: 2, pointerEvents: "none" }} />
+      <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: 60, background: "linear-gradient(to left, white, transparent)", zIndex: 2, pointerEvents: "none" }} />
+      <div ref={trackRef} style={{ display: "flex", alignItems: "center", willChange: "transform" }}>
+        {doubled.map((b, i) => (
+          <div key={i} style={{ flex: "0 0 160px", display: "flex", alignItems: "center", justifyContent: "center", padding: "16px 20px", height: 88 }}>
+            <BrandLogo name={b.name} logo={b.logo} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
@@ -223,11 +266,7 @@ export default function Index() {
             Мы не просто поставляем товар — мы выстраиваем присутствие бренда на полке. В нашем портфеле более 30 торговых марок: от культовых мировых имён до любимых отечественных производителей. Каждый бренд — это отдельная история переговоров, логистики и доверия, которое мы заслужили годами работы. Сегодня продукция наших партнёров есть в каждом федеральном ретейлере страны.
           </p>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", rowGap: 4 }}>
-            {BRANDS.map((b, i) => (
-              <BrandLogo key={i} name={b.name} logo={b.logo} />
-            ))}
-          </div>
+          <BrandCarousel />
         </div>
       </section>
 
