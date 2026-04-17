@@ -50,15 +50,28 @@ const BRANDS: { name: string; logo: string }[] = [
 
 function BrandLogo({ name, logo }: { name: string; logo: string }) {
   const [failed, setFailed] = useState(false);
+  const [hovered, setHovered] = useState(false);
 
   return (
     <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
       style={{
         display: "flex",
+        flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        padding: "14px 12px",
-        minHeight: 72,
+        gap: 10,
+        width: 200,
+        height: 120,
+        borderRadius: 12,
+        border: `1.5px solid ${hovered ? "#d0d0d0" : "#ebebeb"}`,
+        background: hovered ? "#fafafa" : "#fff",
+        boxShadow: hovered ? "0 6px 24px rgba(0,0,0,0.09)" : "0 2px 8px rgba(0,0,0,0.04)",
+        transition: "all 0.22s ease",
+        transform: hovered ? "translateY(-3px) scale(1.03)" : "translateY(0) scale(1)",
+        cursor: "default",
+        padding: "18px 20px",
       }}
     >
       {!failed ? (
@@ -67,27 +80,23 @@ function BrandLogo({ name, logo }: { name: string; logo: string }) {
           alt={name}
           onError={() => setFailed(true)}
           style={{
-            maxHeight: 50,
-            maxWidth: 110,
+            maxHeight: 60,
+            maxWidth: 140,
             objectFit: "contain",
-            transition: "opacity 0.2s",
-            opacity: 1,
+            filter: hovered ? "none" : "grayscale(30%)",
+            opacity: hovered ? 1 : 0.85,
+            transition: "all 0.22s ease",
           }}
-          onMouseEnter={(e) =>
-            ((e.currentTarget as HTMLImageElement).style.opacity = "0.65")
-          }
-          onMouseLeave={(e) =>
-            ((e.currentTarget as HTMLImageElement).style.opacity = "1")
-          }
         />
       ) : (
         <span
           style={{
             fontFamily: "'Montserrat', sans-serif",
-            fontWeight: 700,
-            fontSize: "0.85rem",
-            color: "#333",
+            fontWeight: 800,
+            fontSize: "0.9rem",
+            color: "#222",
             textAlign: "center",
+            letterSpacing: "0.02em",
           }}
         >
           {name}
@@ -108,7 +117,7 @@ function BrandCarousel() {
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
-    const itemWidth = 160;
+    const itemWidth = 224;
     const totalWidth = BRANDS.length * itemWidth;
 
     const animate = () => {
@@ -131,7 +140,7 @@ function BrandCarousel() {
       <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: 60, background: "linear-gradient(to left, white, transparent)", zIndex: 2, pointerEvents: "none" }} />
       <div ref={trackRef} style={{ display: "flex", alignItems: "center", willChange: "transform" }}>
         {doubled.map((b, i) => (
-          <div key={i} style={{ flex: "0 0 160px", display: "flex", alignItems: "center", justifyContent: "center", padding: "16px 20px", height: 88 }}>
+          <div key={i} style={{ flex: "0 0 224px", display: "flex", alignItems: "center", justifyContent: "center", padding: "16px 12px", height: 152 }}>
             <BrandLogo name={b.name} logo={b.logo} />
           </div>
         ))}
