@@ -63,11 +63,11 @@ function BrandLogo({ name, logo }: { name: string; logo: string }) {
         justifyContent: "center",
         gap: 10,
         width: 200,
-        height: 120,
+        height: 140,
         borderRadius: 12,
-        border: `1.5px solid ${hovered ? "#d0d0d0" : "#ebebeb"}`,
-        background: hovered ? "#fafafa" : "#fff",
-        boxShadow: hovered ? "0 6px 24px rgba(0,0,0,0.09)" : "0 2px 8px rgba(0,0,0,0.04)",
+        border: `1.5px solid ${hovered ? "#c0392b" : "#ebebeb"}`,
+        background: hovered ? "#fff8f7" : "#fff",
+        boxShadow: hovered ? "0 6px 24px rgba(192,57,43,0.12)" : "0 2px 8px rgba(0,0,0,0.04)",
         transition: "all 0.22s ease",
         transform: hovered ? "translateY(-3px) scale(1.03)" : "translateY(0) scale(1)",
         cursor: "default",
@@ -80,11 +80,11 @@ function BrandLogo({ name, logo }: { name: string; logo: string }) {
           alt={name}
           onError={() => setFailed(true)}
           style={{
-            maxHeight: 60,
-            maxWidth: 140,
+            maxHeight: 72,
+            maxWidth: 150,
             objectFit: "contain",
             filter: hovered ? "none" : "grayscale(30%)",
-            opacity: hovered ? 1 : 0.85,
+            opacity: hovered ? 1 : 0.82,
             transition: "all 0.22s ease",
           }}
         />
@@ -92,16 +92,27 @@ function BrandLogo({ name, logo }: { name: string; logo: string }) {
         <span
           style={{
             fontFamily: "'Montserrat', sans-serif",
-            fontWeight: 800,
-            fontSize: "0.9rem",
-            color: "#222",
+            fontWeight: 900,
+            fontSize: "1.15rem",
+            color: "#1a1a1a",
             textAlign: "center",
-            letterSpacing: "0.02em",
+            letterSpacing: "0.04em",
           }}
         >
           {name}
         </span>
       )}
+      <span style={{
+        fontFamily: "'Montserrat', sans-serif",
+        fontSize: "0.68rem",
+        fontWeight: 700,
+        color: hovered ? "#c0392b" : "#bbb",
+        letterSpacing: "0.1em",
+        textTransform: "uppercase",
+        transition: "color 0.22s ease",
+      }}>
+        {name}
+      </span>
     </div>
   );
 }
@@ -140,7 +151,7 @@ function BrandCarousel() {
       <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: 60, background: "linear-gradient(to left, white, transparent)", zIndex: 2, pointerEvents: "none" }} />
       <div ref={trackRef} style={{ display: "flex", alignItems: "center", willChange: "transform" }}>
         {doubled.map((b, i) => (
-          <div key={i} style={{ flex: "0 0 224px", display: "flex", alignItems: "center", justifyContent: "center", padding: "16px 12px", height: 152 }}>
+          <div key={i} style={{ flex: "0 0 224px", display: "flex", alignItems: "center", justifyContent: "center", padding: "16px 12px", height: 172 }}>
             <BrandLogo name={b.name} logo={b.logo} />
           </div>
         ))}
